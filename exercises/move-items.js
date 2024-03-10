@@ -88,7 +88,7 @@ function updateCollections(id, direction){
 
 // Your code goes here...
 
-// let allItems = document.querySelectorAll('.item');
+allItems = document.querySelectorAll('.item'); 
 
 allItems.forEach(item => {
     item.addEventListener('click', function() {
