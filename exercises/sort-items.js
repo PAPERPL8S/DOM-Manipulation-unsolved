@@ -76,7 +76,7 @@ function sortData(order) {
 // sortBtn = document.getElementsByClassName('sortBtn');
 
 sortBtnArray.forEach(btn => {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function() {
         console.log('Button clicked!');
         const sortDirection = this.dataset.sortdir;
         sortData(sortDirection)
