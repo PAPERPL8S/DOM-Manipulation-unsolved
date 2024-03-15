@@ -38,3 +38,52 @@
  */
 
 // Your code goes here...
+
+function setRedBackground() {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    favorites.forEach(itemId => {
+        const item = document.getElementById(itemId);
+        if (item) {
+            item.style.backgroundColor = 'red';
+        }
+    });
+}
+
+function addToFavorites(itemId) {
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    if (!favorites.includes(itemId)) {
+        favorites.push(itemId);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+}
+
+function removeFromFavorites(itemId) {
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    favorites = favorites.filter(id => id !== itemId);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function handleItemClick(event) {
+    const item = event.target;
+    const itemId = item.id;
+
+    if (!itemId) return;
+
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+    if (!favorites.includes(itemId)) {
+        item.style.backgroundColor = 'red';
+        addToFavorites(itemId);
+    } else {
+        item.style.backgroundColor = 'white';
+        removeFromFavorites(itemId);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', handleItemClick);
+    });
+    setRedBackground();
+});

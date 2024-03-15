@@ -74,6 +74,7 @@ function updateCollections(id, direction) {
 
         icon.className = 'fas fa-heart-crack';
     }
+    
     item.appendChild(icon);
 }
 
