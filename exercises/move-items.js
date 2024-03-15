@@ -59,15 +59,12 @@ function updateCollections(id, direction){
         const mainContainer = document.getElementById('main');
         mainContainer.appendChild(item);
 
-        item.classList.remove("fa-solid fa-heart-crack");
-        item.classList.add("fa-heart-circle-plus");
+        item.classList.replace("fa-heart-crack", "fa-heart-circle-plus");
     } else if (direction === 'toFavs') {
-
         const favsContainer = document.getElementById('favs');
         favsContainer.appendChild(item);
 
-        item.classList.remove("fa-heart-circle-plus");
-        item.classList.add("fa-solid fa-heart-crack");
+        item.classList.replace("fa-heart-circle-plus", "fa-heart-crack");
     }
 }
 
