@@ -52,22 +52,30 @@ const favs = document.getElementById('favs');
  */
 
 // Your code goes here
-function updateCollections(id, direction){
+
+function updateCollections(id, direction) {
     const item = document.getElementById(id);
+    const icon = document.createElement('i');
+    
+    
+    const existingIcon = item.querySelector('i');
+    if (existingIcon) {
+        existingIcon.remove();
+    }
 
     if (direction === 'toMain') {
         const mainContainer = document.getElementById('main');
         mainContainer.appendChild(item);
 
-        item.classList.replace("fa-heart-crack", "fa-heart-circle-plus");
+        icon.className = 'fas fa-heart-circle-plus';
     } else if (direction === 'toFavs') {
         const favsContainer = document.getElementById('favs');
         favsContainer.appendChild(item);
 
-        item.classList.replace("fa-heart-circle-plus", "fa-heart-crack");
+        icon.className = 'fas fa-heart-crack';
     }
+    item.appendChild(icon);
 }
-
 
 /**
  * @task
