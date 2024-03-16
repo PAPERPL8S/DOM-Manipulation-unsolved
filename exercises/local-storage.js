@@ -81,9 +81,7 @@ function handleItemClick(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.addEventListener('click', handleItemClick);
-    });
+    const cardsContainer = document.querySelector('.cardsContainer');
+    cardsContainer.addEventListener('click', handleItemClick);
     setRedBackground();
 });
